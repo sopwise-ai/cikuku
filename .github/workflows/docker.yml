@@ -32,6 +32,15 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Build image
         run: docker build --build-arg NEXT_PUBLIC_APP_URL=https://cikuku.example.com --tag cikuku:ci .
+      - name: Scan image
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: cikuku:ci
+          format: table
+          exit-code: "1"
+          ignore-unfixed: true
+          severity: HIGH,CRITICAL
+          vuln-type: os,library
       - name: Smoke test
         run: |
           docker run --detach --name cikuku --publish 3000:3000 \
