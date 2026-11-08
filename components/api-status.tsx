@@ -1,15 +1,20 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { z } from "zod";
+
+const healthSchema = z.object({
+  status: z.literal("ok"),
+});
 
 async function fetchHealth() {
-  const response = await fetch("/api/health");
+  const response = await fetch("/api/health", { cache: "no-store" });
 
   if (!response.ok) {
     throw new Error("Health check failed");
   }
 
-  return (await response.json()) as { status: string };
+  return healthSchema.parse(await response.json());
 }
 
 export function ApiStatus() {
