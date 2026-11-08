@@ -5,7 +5,7 @@ test.describe("home page", () => {
   test("renders the starter heading", async ({ page }) => {
     await page.goto("/");
 
-    await expect(page).toHaveTitle(/Create Next App/);
+    await expect(page).toHaveTitle(/Cikuku/);
     await expect(page.getByRole("heading", { level: 1 })).toContainText("To get started");
   });
 
@@ -25,4 +25,11 @@ test.describe("home page", () => {
     expect(contentSecurityPolicy).toContain("object-src 'none'");
     expect(contentSecurityPolicy).toContain("frame-ancestors 'none'");
   });
+});
+
+test("renders the not-found page", async ({ page }) => {
+  const response = await page.goto("/does-not-exist");
+
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Page not found");
 });

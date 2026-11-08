@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Typed environment validation with `zod` and `@t3-oss/env-nextjs`.
 - Playwright end-to-end and axe accessibility checks.
 - CodeQL, OpenSSF Scorecard, and scheduled Lighthouse CI.
+- App Router error, loading, and not-found boundaries, plus sitemap, robots, and manifest routes.
 
 ### Changed
 

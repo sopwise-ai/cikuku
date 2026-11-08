@@ -41,7 +41,8 @@ Open [http://localhost:3000](http://localhost:3000).
 Copy [`.env.example`](.env.example) to `.env.local` and adjust the values.
 `lib/env.ts` validates the configuration at build time and on server startup,
 so invalid values fail fast instead of surfacing at request time.
-`NEXT_PUBLIC_APP_URL` sets `metadataBase` for absolute URLs.
+`NEXT_PUBLIC_APP_URL` sets `metadataBase` and the canonical URL used by
+`sitemap.xml` and `robots.txt`.
 
 ## Quality gates
 
