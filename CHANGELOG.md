@@ -41,6 +41,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added a runtime dependency audit to CI.
 - Added a Content Security Policy for all routes.
+- Blocked inline event handlers with `script-src-attr 'none'` and documented
+  the limits of the baseline policy.
 
 ## [0.1.0] - 2026-11-08
 

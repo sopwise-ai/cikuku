@@ -59,8 +59,10 @@ test.describe("home page", () => {
     const contentSecurityPolicy = response?.headers()["content-security-policy"];
 
     expect(contentSecurityPolicy).toContain("default-src 'self'");
+    expect(contentSecurityPolicy).toContain("script-src-attr 'none'");
     expect(contentSecurityPolicy).toContain("object-src 'none'");
     expect(contentSecurityPolicy).toContain("frame-ancestors 'none'");
+    expect(contentSecurityPolicy).not.toContain("'unsafe-eval'");
   });
 });
 
