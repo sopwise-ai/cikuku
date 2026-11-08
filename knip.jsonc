@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  // shadcn/ui files are vendored primitives. Treating them as entry points keeps
+  // their public exports from being reported as unused while still scanning
+  // their imports for unused dependencies.
+  "entry": ["components/ui/*.tsx"],
+}

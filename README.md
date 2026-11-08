@@ -3,7 +3,7 @@
 [![CI](https://github.com/sopwise-ai/cikuku/actions/workflows/ci.yml/badge.svg)](https://github.com/sopwise-ai/cikuku/actions/workflows/ci.yml)
 
 Cikuku is a [Next.js](https://nextjs.org) 16 application using the App Router,
-TypeScript, and Tailwind CSS.
+TypeScript, Tailwind CSS, and [shadcn/ui](https://ui.shadcn.com).
 
 ## Requirements
 
@@ -50,6 +50,17 @@ CI runs formatting, linting, type checking, dead-code detection, unit tests, a
 production build, and Playwright end-to-end tests. CodeQL and OpenSSF Scorecard
 publish results to code scanning, and Lighthouse CI runs weekly with
 accessibility assertions.
+
+## UI
+
+Components live in `components/ui` and are generated with shadcn/ui:
+
+```bash
+npx shadcn@latest add <component>
+```
+
+The theme is class-based through `next-themes`, with light, dark, and system
+options.
 
 ## Contributing
 

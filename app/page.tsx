@@ -1,69 +1,106 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Boxes, Code2, FlaskConical, ShieldCheck, Sparkles } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { siteConfig } from "@/lib/site";
+
+const features = [
+  {
+    icon: Boxes,
+    title: "Strict TypeScript",
+    description: "Strict compiler options, generated route types, and typed environment variables.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Tested end to end",
+    description: "Vitest, React Testing Library, Playwright, and axe accessibility checks.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Protected main",
+    description: "Pull requests, required CI checks, CodeQL, and a squash-only history.",
+  },
+  {
+    icon: Sparkles,
+    title: "Themeable UI",
+    description:
+      "Tailwind CSS v4 tokens, shadcn/ui primitives, and a light, dark, or system theme.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex w-full max-w-3xl flex-1 flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image
-          className="h-5 w-25 dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/6 px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/8">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="flex min-h-screen flex-col">
+      <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
+        <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6">
+          <Link href="/" className="flex items-center gap-2 font-semibold">
+            <span className="flex size-7 items-center justify-center rounded-lg bg-primary text-xs text-primary-foreground">
+              C
+            </span>
+            {siteConfig.name}
+          </Link>
+          <div className="flex items-center gap-1">
+            <Button asChild variant="ghost" size="sm">
+              <Link href="https://github.com/sopwise-ai/cikuku" target="_blank" rel="noreferrer">
+                <Code2 className="size-4" />
+                GitHub
+              </Link>
+            </Button>
+            <ThemeToggle />
+          </div>
+        </div>
+      </header>
+
+      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-16 px-6 py-20">
+        <section className="flex flex-col items-start gap-6">
+          <Badge variant="secondary">Next.js 16 · App Router</Badge>
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+            A production-ready starter for modern web apps
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] md:w-39.5 dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="h-3.5 w-4 dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 md:w-39.5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <p className="max-w-2xl text-lg text-muted-foreground">{siteConfig.description}</p>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild size="lg">
+              <Link href="https://nextjs.org/docs" target="_blank" rel="noreferrer">
+                Read the docs
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="https://github.com/sopwise-ai/cikuku" target="_blank" rel="noreferrer">
+                View source
+              </Link>
+            </Button>
+          </div>
+        </section>
+
+        <section aria-labelledby="features-heading" className="flex flex-col gap-6">
+          <h2 id="features-heading" className="text-2xl font-semibold tracking-tight">
+            Everything wired up
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {features.map(({ icon: Icon, title, description }) => (
+              <Card key={title}>
+                <CardHeader>
+                  <Icon className="size-5 text-muted-foreground" aria-hidden="true" />
+                  <CardTitle>{title}</CardTitle>
+                  <CardDescription>{description}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </section>
       </main>
+
+      <footer className="border-t">
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>Built with Next.js, Tailwind CSS, and shadcn/ui.</p>
+          <Link href="/sitemap.xml" className="hover:text-foreground">
+            Sitemap
+          </Link>
+        </div>
+      </footer>
     </div>
   );
 }
