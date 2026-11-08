@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Baseline security headers for all routes.
 - Husky hooks, lint-staged, and commitlint for local commit checks.
 - Pull request title validation for squash merges.
+- Sorted Tailwind classes with `prettier-plugin-tailwindcss`.
+- Unused file, export, and dependency detection with `knip`.
+- Shared VS Code settings and GitHub issue forms.
 
 ### Changed
 

@@ -32,6 +32,7 @@
    npm run format:check
    npm run lint
    npm run typecheck
+   npm run knip
    npm test
    npm run build
    ```
