@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Playwright end-to-end and axe accessibility checks.
 - CodeQL, OpenSSF Scorecard, and scheduled Lighthouse CI.
 - App Router error, loading, and not-found boundaries, plus sitemap, robots, and manifest routes.
+- shadcn/ui primitives, class-based dark mode, and a starter landing page.
 
 ### Changed
 
