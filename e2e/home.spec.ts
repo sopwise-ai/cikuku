@@ -32,6 +32,7 @@ test.describe("home page", () => {
     const response = await request.get("/api/health");
 
     expect(response.ok()).toBe(true);
+    expect(response.headers()["cache-control"]).toContain("no-store");
     await expect(response.json()).resolves.toEqual({ status: "ok" });
   });
 

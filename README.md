@@ -39,10 +39,13 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Environment
 
 Copy [`.env.example`](.env.example) to `.env.local` and adjust the values.
-`lib/env.ts` validates the configuration at build time and on server startup,
-so invalid values fail fast instead of surfacing at request time.
-`NEXT_PUBLIC_APP_URL` sets `metadataBase` and the canonical URL used by
-`sitemap.xml` and `robots.txt`.
+`NEXT_PUBLIC_APP_URL` is required for production builds: the build fails
+without it, because `metadataBase`, `sitemap.xml`, `robots.txt`, and canonical
+URLs depend on it. Development falls back to `http://localhost:3000`.
+
+`lib/env.ts` validates the schema at build time. `NEXT_PUBLIC_*` values are
+inlined at build time, so set them before `npm run build`, and pass
+`NEXT_PUBLIC_APP_URL` as a Docker build argument when building the image.
 
 ## Quality gates
 
@@ -72,7 +75,7 @@ options.
 The production build uses the standalone output. Build and run the image:
 
 ```bash
-docker build -t cikuku .
+docker build --build-arg NEXT_PUBLIC_APP_URL=https://example.com -t cikuku .
 docker run --rm -p 3000:3000 cikuku
 ```
 

@@ -27,5 +27,8 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: false,
     timeout: 180_000,
+    env: {
+      NEXT_PUBLIC_APP_URL: baseURL,
+    },
   },
 });

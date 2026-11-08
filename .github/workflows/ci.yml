@@ -44,6 +44,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          NEXT_PUBLIC_APP_URL: https://cikuku.example.com
           NEXT_TELEMETRY_DISABLED: "1"
 
   e2e:
@@ -84,10 +85,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Build image
-        run: docker build --tag cikuku:ci .
+        run: docker build --build-arg NEXT_PUBLIC_APP_URL=https://cikuku.example.com --tag cikuku:ci .
       - name: Smoke test
         run: |
-          docker run --detach --name cikuku --publish 3000:3000 cikuku:ci
+          docker run --detach --name cikuku --publish 3000:3000 \
+            --env NEXT_PUBLIC_APP_URL=https://cikuku.example.com cikuku:ci
           for attempt in $(seq 1 30); do
             if curl --fail --silent http://127.0.0.1:3000/api/health; then
               exit 0
