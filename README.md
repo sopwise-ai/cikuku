@@ -32,6 +32,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm test`              | Run tests once                                 |
 | `npm run test:watch`    | Run tests in watch mode                        |
 | `npm run test:coverage` | Run tests with coverage                        |
+| `npm run test:e2e`      | Run Playwright end-to-end tests                |
 | `npm run format`        | Format files with Prettier                     |
 | `npm run format:check`  | Check formatting without writing               |
 

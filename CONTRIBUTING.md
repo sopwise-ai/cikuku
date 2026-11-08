@@ -34,8 +34,11 @@
    npm run typecheck
    npm run knip
    npm test
+   npm run test:e2e
    npm run build
    ```
+
+   The end-to-end suite needs a browser once: `npx playwright install chromium`.
 
 4. Open a pull request with a Conventional Commits title and make sure CI passes.
    Because `main` is squash-only, the pull request title becomes the commit message.
