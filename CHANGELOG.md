@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Typed environment validation with `zod` and `@t3-oss/env-nextjs`.
 - Playwright end-to-end and axe accessibility checks.
 - CodeQL, OpenSSF Scorecard, and scheduled Lighthouse CI.
+- Lighthouse now runs on application pull requests with error-level budgets.
 - App Router error, loading, and not-found boundaries, plus sitemap, robots, and manifest routes.
 - shadcn/ui primitives, class-based dark mode, and a starter landing page.
 - A health endpoint and a TanStack Query provider.
