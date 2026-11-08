@@ -72,9 +72,10 @@ route needs it.
 
 CI runs formatting, linting, type checking, dead-code detection, unit tests, a
 production build, and Playwright end-to-end tests. CodeQL and OpenSSF Scorecard
-publish results to code scanning, and Lighthouse CI runs weekly with
-accessibility assertions. Docker images are built on `main` and on pull
-requests that touch Docker inputs.
+publish results to code scanning. Lighthouse runs on pull requests that touch
+application code and weekly, with performance, accessibility, best-practices,
+and SEO assertions. Docker images are built on `main` and on pull requests that
+touch Docker inputs.
 
 ## Testing
 

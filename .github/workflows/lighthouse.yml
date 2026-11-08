@@ -1,12 +1,28 @@
 name: Lighthouse
 
 on:
+  pull_request:
+    paths:
+      - "app/**"
+      - "components/**"
+      - "lib/**"
+      - "next.config.ts"
+      - "package.json"
+      - "package-lock.json"
+      - "lighthouserc.json"
+      - ".github/workflows/lighthouse.yml"
+  push:
+    branches: [main]
   schedule:
     - cron: "0 2 * * 1"
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lighthouse:
@@ -26,10 +42,12 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          NEXT_PUBLIC_APP_URL: https://cikuku.example.com
           NEXT_TELEMETRY_DISABLED: "1"
       - name: Run Lighthouse CI
         run: npx --yes @lhci/cli@0.16.0 autorun
         env:
+          NEXT_PUBLIC_APP_URL: https://cikuku.example.com
           NEXT_TELEMETRY_DISABLED: "1"
       - name: Upload report
         if: always()
