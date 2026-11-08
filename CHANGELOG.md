@@ -33,6 +33,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unified error, loading, and not-found UI around `StatusPanel`, and restored
   the theme in `global-error`.
 - Server errors are reported through `onRequestError` with request context.
+- Documented architecture, caching, testing, and release steps, and added
+  project conventions to `AGENTS.md`.
+- Tightened TypeScript flags, knip's unused-export handling, and the manifest
+  icon; removed the unused create-next-app assets.
 - `/api/health` is rendered per request and sends `Cache-Control: no-store`.
 - Enabled `noUncheckedIndexedAccess` and `noImplicitOverride` in TypeScript.
 - Aligned the Node.js engine with the local toolchain and `.nvmrc`.
