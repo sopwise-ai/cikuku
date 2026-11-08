@@ -33,6 +33,12 @@ jobs:
         run: npm run lint
       - name: Typecheck
         run: npm run typecheck
+      - name: Test
+        run: npm test
+      # Dependency review is unavailable while the repository Dependency graph
+      # is disabled; npm audit blocks high/critical runtime advisories.
+      - name: Audit runtime dependencies
+        run: npm audit --omit=dev --audit-level=high
       - name: Build
         run: npm run build
         env:
