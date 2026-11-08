@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Prettier, EditorConfig, and a CI format check.
+- Vitest and React Testing Library test suite.
+- Baseline security headers for all routes.
+
+### Changed
+
+- Enabled `noUncheckedIndexedAccess` and `noImplicitOverride` in TypeScript.
+- Aligned the Node.js engine with the local toolchain and `.nvmrc`.
+
+### Security
+
+- Added a runtime dependency audit to CI.
+
 ## [0.1.0] - 2026-11-08
 
 ### Added
