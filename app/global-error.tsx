@@ -1,7 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
+import { StatusPanel } from "@/components/status-panel";
+import { Button } from "@/components/ui/button";
 import "./globals.css";
+
+const themeScript = `
+try {
+  const stored = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const dark = stored === "dark" || (stored !== "light" && prefersDark);
+  document.documentElement.classList.toggle("dark", dark);
+} catch {}
+`;
 
 export default function GlobalError({ error, retry }: { error: unknown; retry: () => void }) {
   useEffect(() => {
@@ -9,21 +20,16 @@ export default function GlobalError({ error, retry }: { error: unknown; retry: (
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight">Something went wrong</h1>
-          <p className="max-w-md text-zinc-600 dark:text-zinc-400">
-            The application could not render this page. Try again.
-          </p>
-          <button
-            type="button"
-            onClick={retry}
-            className="rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-          >
-            Try again
-          </button>
-        </main>
+        <StatusPanel
+          title="Something went wrong"
+          description="The application could not render this page. Try again."
+          action={<Button onClick={retry}>Try again</Button>}
+        />
       </body>
     </html>
   );

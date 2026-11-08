@@ -28,6 +28,18 @@ test.describe("home page", () => {
     expect(results.violations).toEqual([]);
   });
 
+  test("has no accessibility violations in dark mode", async ({ page }) => {
+    await page.goto("/");
+
+    await page.getByRole("button", { name: "Toggle theme" }).click();
+    await page.getByRole("menuitem", { name: "Dark" }).click();
+    await expect(page.locator("html")).toHaveClass(/dark/);
+
+    const results = await new AxeBuilder({ page }).analyze();
+
+    expect(results.violations).toEqual([]);
+  });
+
   test("serves a health endpoint", async ({ request }) => {
     const response = await request.get("/api/health");
 
@@ -57,4 +69,8 @@ test("renders the not-found page", async ({ page }) => {
 
   expect(response?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Page not found");
+
+  const results = await new AxeBuilder({ page }).analyze();
+
+  expect(results.violations).toEqual([]);
 });
