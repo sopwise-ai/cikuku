@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prettier, EditorConfig, and a CI format check.
 - Vitest and React Testing Library test suite.
 - Baseline security headers for all routes.
+- Husky hooks, lint-staged, and commitlint for local commit checks.
+- Pull request title validation for squash merges.
 
 ### Changed
 

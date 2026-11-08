@@ -15,7 +15,17 @@
    - `chore/<short-description>`
    - `docs/<short-description>`
 2. Make focused commits using [Conventional Commits](https://www.conventionalcommits.org/):
-   `feat:`, `fix:`, `chore:`, `docs:`, `ci:`, `refactor:`, `test:`.
+   `build:`, `chore:`, `ci:`, `docs:`, `feat:`, `fix:`, `perf:`, `refactor:`,
+   `revert:`, `style:`, `test:`.
+
+   Husky installs the hooks on `npm install`:
+
+   - `pre-commit` runs `lint-staged`, which formats and lints only the staged files.
+   - `commit-msg` runs commitlint and rejects non-conventional messages.
+
+   Hooks can be bypassed with `git commit --no-verify`, but CI and the pull request
+   title check enforce the same rules.
+
 3. Run the checks locally:
 
    ```bash
@@ -26,7 +36,8 @@
    npm run build
    ```
 
-4. Open a pull request and make sure CI passes.
+4. Open a pull request with a Conventional Commits title and make sure CI passes.
+   Because `main` is squash-only, the pull request title becomes the commit message.
 5. Squash merge; the head branch is deleted automatically.
 
 ## Releases
