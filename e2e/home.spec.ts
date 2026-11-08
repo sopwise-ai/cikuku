@@ -28,6 +28,19 @@ test.describe("home page", () => {
     expect(results.violations).toEqual([]);
   });
 
+  test("serves a health endpoint", async ({ request }) => {
+    const response = await request.get("/api/health");
+
+    expect(response.ok()).toBe(true);
+    await expect(response.json()).resolves.toEqual({ status: "ok" });
+  });
+
+  test("reports API health on the page", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("status")).toContainText("API healthy");
+  });
+
   test("sends a content security policy", async ({ page }) => {
     const response = await page.goto("/");
     const contentSecurityPolicy = response?.headers()["content-security-policy"];

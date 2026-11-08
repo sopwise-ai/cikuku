@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Boxes, Code2, FlaskConical, ShieldCheck, Sparkles } from "lucide-react";
+import { ApiStatus } from "@/components/api-status";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -96,9 +97,12 @@ export default function Home() {
       <footer className="border-t">
         <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-6 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>Built with Next.js, Tailwind CSS, and shadcn/ui.</p>
-          <Link href="/sitemap.xml" className="hover:text-foreground">
-            Sitemap
-          </Link>
+          <div className="flex items-center gap-4">
+            <ApiStatus />
+            <Link href="/sitemap.xml" className="hover:text-foreground">
+              Sitemap
+            </Link>
+          </div>
         </div>
       </footer>
     </div>

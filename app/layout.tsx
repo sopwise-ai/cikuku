@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { QueryProvider } from "@/components/query-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <QueryProvider>{children}</QueryProvider>
         </ThemeProvider>
       </body>
     </html>

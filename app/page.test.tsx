@@ -6,6 +6,10 @@ vi.mock("next-themes", () => ({
   useTheme: () => ({ setTheme: vi.fn() }),
 }));
 
+vi.mock("@/components/api-status", () => ({
+  ApiStatus: () => <span role="status">API healthy</span>,
+}));
+
 describe("Home", () => {
   it("renders the hero and the repository link", () => {
     render(<Home />);
