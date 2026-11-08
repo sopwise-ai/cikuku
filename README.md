@@ -35,6 +35,13 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run format`        | Format files with Prettier                     |
 | `npm run format:check`  | Check formatting without writing               |
 
+## Environment
+
+Copy [`.env.example`](.env.example) to `.env.local` and adjust the values.
+`lib/env.ts` validates the configuration at build time and on server startup,
+so invalid values fail fast instead of surfacing at request time.
+`NEXT_PUBLIC_APP_URL` sets `metadataBase` for absolute URLs.
+
 ## Contributing
 
 `main` is protected: all changes go through a pull request, CI must pass, and

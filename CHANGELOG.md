@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Sorted Tailwind classes with `prettier-plugin-tailwindcss`.
 - Unused file, export, and dependency detection with `knip`.
 - Shared VS Code settings and GitHub issue forms.
+- Typed environment validation with `zod` and `@t3-oss/env-nextjs`.
 
 ### Changed
 
