@@ -21,18 +21,19 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Command                 | Description                           |
-| ----------------------- | ------------------------------------- |
-| `npm run dev`           | Start the development server          |
-| `npm run build`         | Create a production build             |
-| `npm run start`         | Start the production server           |
-| `npm run lint`          | Run ESLint                            |
-| `npm run typecheck`     | Run TypeScript without emitting files |
-| `npm test`              | Run tests once                        |
-| `npm run test:watch`    | Run tests in watch mode               |
-| `npm run test:coverage` | Run tests with coverage               |
-| `npm run format`        | Format files with Prettier            |
-| `npm run format:check`  | Check formatting without writing      |
+| Command                 | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| `npm run dev`           | Start the development server                   |
+| `npm run build`         | Create a production build                      |
+| `npm run start`         | Start the production server                    |
+| `npm run lint`          | Run ESLint                                     |
+| `npm run typecheck`     | Run TypeScript without emitting files          |
+| `npm run knip`          | Detect unused files, exports, and dependencies |
+| `npm test`              | Run tests once                                 |
+| `npm run test:watch`    | Run tests in watch mode                        |
+| `npm run test:coverage` | Run tests with coverage                        |
+| `npm run format`        | Format files with Prettier                     |
+| `npm run format:check`  | Check formatting without writing               |
 
 ## Contributing
 
