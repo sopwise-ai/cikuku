@@ -51,6 +51,11 @@ production build, and Playwright end-to-end tests. CodeQL and OpenSSF Scorecard
 publish results to code scanning, and Lighthouse CI runs weekly with
 accessibility assertions.
 
+## API
+
+`GET /api/health` returns `{ "status": "ok" }`. Client data fetching uses
+TanStack Query through `components/query-provider.tsx`.
+
 ## UI
 
 Components live in `components/ui` and are generated with shadcn/ui:
