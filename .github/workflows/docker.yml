@@ -9,6 +9,7 @@ on:
       - "package.json"
       - "package-lock.json"
       - "next.config.ts"
+      - "public/**"
       - ".github/workflows/docker.yml"
   push:
     branches: [main]
