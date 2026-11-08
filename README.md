@@ -70,6 +70,12 @@ npx shadcn@latest add <component>
 The theme is class-based through `next-themes`, with light, dark, and system
 options.
 
+## Observability
+
+`instrumentation.ts` exports `onRequestError`, which logs structured JSON with
+the error message, digest, path, method, route, and router kind. Replace the
+`console.error` call with your error platform or forward the payload to it.
+
 ## Deployment
 
 The production build uses the standalone output. Build and run the image:

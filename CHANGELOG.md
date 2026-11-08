@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Coverage now includes components and library code, with 80% thresholds.
 - Unified error, loading, and not-found UI around `StatusPanel`, and restored
   the theme in `global-error`.
+- Server errors are reported through `onRequestError` with request context.
 - `/api/health` is rendered per request and sends `Cache-Control: no-store`.
 - Enabled `noUncheckedIndexedAccess` and `noImplicitOverride` in TypeScript.
 - Aligned the Node.js engine with the local toolchain and `.nvmrc`.
