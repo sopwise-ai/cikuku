@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.github
+coverage
+playwright-report
+test-results
+lighthouse-report
+.lighthouseci
+.env*
+Dockerfile
+.dockerignore

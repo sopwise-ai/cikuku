@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App Router error, loading, and not-found boundaries, plus sitemap, robots, and manifest routes.
 - shadcn/ui primitives, class-based dark mode, and a starter landing page.
 - A health endpoint and a TanStack Query provider.
+- A standalone Docker image with a non-root runtime user.
 
 ### Changed
 

@@ -67,6 +67,18 @@ npx shadcn@latest add <component>
 The theme is class-based through `next-themes`, with light, dark, and system
 options.
 
+## Deployment
+
+The production build uses the standalone output. Build and run the image:
+
+```bash
+docker build -t cikuku .
+docker run --rm -p 3000:3000 cikuku
+```
+
+The container runs as a non-root user, listens on port 3000, and exposes
+`/api/health` for health checks.
+
 ## Contributing
 
 `main` is protected: all changes go through a pull request, CI must pass, and
