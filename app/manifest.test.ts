@@ -8,6 +8,6 @@ describe("manifest", () => {
 
     expect(result.name).toBe(siteConfig.name);
     expect(result.start_url).toBe("/");
-    expect(result.icons?.[0]?.src).toBe("/favicon.ico");
+    expect(result.icons?.[0]?.src).toBe("/icon.svg");
   });
 });
