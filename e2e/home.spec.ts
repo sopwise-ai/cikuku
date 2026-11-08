@@ -16,4 +16,13 @@ test.describe("home page", () => {
 
     expect(results.violations).toEqual([]);
   });
+
+  test("sends a content security policy", async ({ page }) => {
+    const response = await page.goto("/");
+    const contentSecurityPolicy = response?.headers()["content-security-policy"];
+
+    expect(contentSecurityPolicy).toContain("default-src 'self'");
+    expect(contentSecurityPolicy).toContain("object-src 'none'");
+    expect(contentSecurityPolicy).toContain("frame-ancestors 'none'");
+  });
 });

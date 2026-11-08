@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 
 - Added a runtime dependency audit to CI.
+- Added a Content Security Policy for all routes.
 
 ## [0.1.0] - 2026-11-08
 
