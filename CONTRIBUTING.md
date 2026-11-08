@@ -26,7 +26,8 @@
    Hooks can be bypassed with `git commit --no-verify`, but CI and the pull request
    title check enforce the same rules.
 
-3. Run the checks locally:
+3. Run the checks locally. `npm run build` requires `NEXT_PUBLIC_APP_URL`;
+   copy `.env.example` to `.env.local` first.
 
    ```bash
    npm run format:check
