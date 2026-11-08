@@ -43,6 +43,13 @@ Copy [`.env.example`](.env.example) to `.env.local` and adjust the values.
 so invalid values fail fast instead of surfacing at request time.
 `NEXT_PUBLIC_APP_URL` sets `metadataBase` for absolute URLs.
 
+## Quality gates
+
+CI runs formatting, linting, type checking, dead-code detection, unit tests, a
+production build, and Playwright end-to-end tests. CodeQL and OpenSSF Scorecard
+publish results to code scanning, and Lighthouse CI runs weekly with
+accessibility assertions.
+
 ## Contributing
 
 `main` is protected: all changes go through a pull request, CI must pass, and

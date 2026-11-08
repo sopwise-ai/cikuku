@@ -16,6 +16,8 @@
 /test-results/
 /blob-report/
 /playwright/.cache/
+/lighthouse-report/
+/.lighthouseci/
 
 # next.js
 /.next/

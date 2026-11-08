@@ -40,6 +40,9 @@
 
    The end-to-end suite needs a browser once: `npx playwright install chromium`.
 
+   Lighthouse CI runs weekly. Run it locally with
+   `npx --yes @lhci/cli@0.16.0 autorun` after `npm run build`.
+
 4. Open a pull request with a Conventional Commits title and make sure CI passes.
    Because `main` is squash-only, the pull request title becomes the commit message.
 5. Squash merge; the head branch is deleted automatically.

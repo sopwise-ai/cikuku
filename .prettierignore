@@ -3,6 +3,8 @@ node_modules
 coverage
 playwright-report
 test-results
+lighthouse-report
+.lighthouseci
 package-lock.json
 next-env.d.ts
 public
