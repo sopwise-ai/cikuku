@@ -34,7 +34,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
       - name: Test
-        run: npm test
+        run: npm run test:coverage
       # Dependency review is unavailable while the repository Dependency graph
       # is disabled; npm audit blocks high/critical runtime advisories.
       - name: Audit runtime dependencies
