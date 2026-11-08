@@ -46,6 +46,13 @@ jobs:
         env:
           NEXT_PUBLIC_APP_URL: https://cikuku.example.com
           NEXT_TELEMETRY_DISABLED: "1"
+      - name: Verify the production URL is required
+        run: |
+          if NEXT_PUBLIC_APP_URL= npm run build > /tmp/missing-url.log 2>&1; then
+            echo "Expected the build to fail without NEXT_PUBLIC_APP_URL"
+            exit 1
+          fi
+          grep -q "NEXT_PUBLIC_APP_URL is required" /tmp/missing-url.log
 
   e2e:
     name: e2e
