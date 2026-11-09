@@ -61,6 +61,9 @@ it. Production builds also reject localhost values. Development falls back to `h
 inlined at build time, so set them before `npm run build`, and pass
 `NEXT_PUBLIC_APP_URL` as a Docker build argument when building the image.
 
+Builds require dev dependencies: Tailwind CSS and the vendored shadcn CSS are
+build-time inputs, so `npm ci --omit=dev` is not a supported build path.
+
 ## Caching
 
 `cacheComponents` and `partialPrefetching` are enabled. Routes stay static
@@ -76,6 +79,11 @@ publish results to code scanning. Lighthouse runs on pull requests that touch
 application code and weekly, with performance, accessibility, best-practices,
 and SEO assertions. Docker (build, Trivy scan, and smoke test) is a required
 check; Lighthouse and CodeQL are advisory.
+
+Trivy blocks fixable HIGH and CRITICAL findings in OS packages and libraries;
+MEDIUM findings and unfixed advisories are reported but do not fail the build.
+Lighthouse runs three samples, asserts the median, and requires performance
+0.8, accessibility 1.0, best practices 0.95, and SEO 0.9.
 
 ## Testing
 
