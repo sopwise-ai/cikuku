@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Server errors are reported through `onRequestError` with request context;
   query strings and long messages are redacted.
 - Production builds reject localhost `NEXT_PUBLIC_APP_URL` values.
+- Documented build-time dependencies and the scan and Lighthouse scopes.
 - Documented architecture, caching, testing, and release steps, and added
   project conventions to `AGENTS.md`.
 - Tightened TypeScript flags, knip's unused-export handling, and the manifest
