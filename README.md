@@ -54,8 +54,8 @@ e2e/        Playwright flows
 
 Copy [`.env.example`](.env.example) to `.env.local` and adjust the values.
 `NEXT_PUBLIC_APP_URL` is required for production builds: the build fails
-without it, because `metadataBase`, `sitemap.xml`, `robots.txt`, and canonical
-URLs depend on it. Development falls back to `http://localhost:3000`.
+without it, because `metadataBase`, `sitemap.xml`, and `robots.txt` depend on
+it. Production builds also reject localhost values. Development falls back to `http://localhost:3000`.
 
 `lib/env.ts` validates the schema at build time. `NEXT_PUBLIC_*` values are
 inlined at build time, so set them before `npm run build`, and pass

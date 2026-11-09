@@ -20,6 +20,28 @@ test.describe("home page", () => {
     await expect(page.locator("html")).toHaveClass(/dark/);
   });
 
+  test("persists the selected theme", async ({ page }) => {
+    await page.goto("/");
+
+    await page.getByRole("button", { name: "Toggle theme" }).click();
+    await page.getByRole("menuitem", { name: "Dark" }).click();
+    await expect(page.locator("html")).toHaveClass(/dark/);
+    expect(await page.evaluate(() => localStorage.getItem("theme"))).toBe("dark");
+
+    await page.reload();
+    await expect(page.locator("html")).toHaveClass(/dark/);
+  });
+
+  test("follows the system color scheme", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.goto("/");
+    await expect(page.locator("html")).toHaveClass(/dark/);
+
+    await page.emulateMedia({ colorScheme: "light" });
+    await page.reload();
+    await expect(page.locator("html")).not.toHaveClass(/dark/);
+  });
+
   test("has no detectable accessibility violations", async ({ page }) => {
     await page.goto("/");
 
@@ -52,6 +74,17 @@ test.describe("home page", () => {
     await page.goto("/");
 
     await expect(page.getByRole("status")).toContainText("API healthy");
+  });
+
+  test("sends the baseline security headers", async ({ page }) => {
+    const response = await page.goto("/");
+    const headers = response?.headers() ?? {};
+
+    expect(headers["x-content-type-options"]).toBe("nosniff");
+    expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+    expect(headers["x-frame-options"]).toBe("DENY");
+    expect(headers["permissions-policy"]).toContain("camera=()");
+    expect(headers["strict-transport-security"]).toContain("max-age=63072000");
   });
 
   test("sends a content security policy", async ({ page }) => {
