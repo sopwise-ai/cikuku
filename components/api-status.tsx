@@ -7,8 +7,13 @@ const healthSchema = z.object({
   status: z.literal("ok"),
 });
 
+const HEALTH_TIMEOUT_MS = 5_000;
+
 async function fetchHealth() {
-  const response = await fetch("/api/health", { cache: "no-store" });
+  const response = await fetch("/api/health", {
+    cache: "no-store",
+    signal: AbortSignal.timeout(HEALTH_TIMEOUT_MS),
+  });
 
   if (!response.ok) {
     throw new Error("Health check failed");
@@ -28,7 +33,7 @@ export function ApiStatus() {
     status === "success" ? "API healthy" : status === "error" ? "API unavailable" : "Checking API";
   const dot =
     status === "success"
-      ? "bg-emerald-500"
+      ? "bg-success"
       : status === "error"
         ? "bg-destructive"
         : "bg-muted-foreground";

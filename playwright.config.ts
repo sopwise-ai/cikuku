@@ -20,6 +20,12 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
+      testIgnore: /mobile\.spec\.ts/,
+    },
+    {
+      name: "mobile-chrome",
+      use: { ...devices["Pixel 7"] },
+      testMatch: /mobile\.spec\.ts/,
     },
   ],
   webServer: {
@@ -28,7 +34,7 @@ export default defineConfig({
     reuseExistingServer: false,
     timeout: 180_000,
     env: {
-      NEXT_PUBLIC_APP_URL: baseURL,
+      NEXT_PUBLIC_APP_URL: "https://cikuku.example.com",
     },
   },
 });

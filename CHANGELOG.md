@@ -24,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App Router error, loading, and not-found boundaries, plus sitemap, robots, and manifest routes.
 - shadcn/ui primitives, class-based dark mode, and a starter landing page.
 - A health endpoint and a TanStack Query provider.
-- A standalone Docker image with a non-root runtime user.
+- A standalone Docker image with a non-root runtime user, a health check, and
+  Trivy scanning in CI.
 
 ### Changed
 
@@ -33,7 +34,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Coverage now includes components and library code, with 80% thresholds.
 - Unified error, loading, and not-found UI around `StatusPanel`, and restored
   the theme in `global-error`.
-- Server errors are reported through `onRequestError` with request context.
+- Server errors are reported through `onRequestError` with request context;
+  query strings and long messages are redacted.
+- Production builds reject localhost `NEXT_PUBLIC_APP_URL` values.
 - Documented architecture, caching, testing, and release steps, and added
   project conventions to `AGENTS.md`.
 - Tightened TypeScript flags, knip's unused-export handling, and the manifest

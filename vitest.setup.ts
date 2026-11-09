@@ -4,6 +4,8 @@ import { afterEach, vi } from "vitest";
 
 afterEach(() => {
   cleanup();
+  document.documentElement.className = "";
+  localStorage.clear();
 });
 
 Object.defineProperty(window, "matchMedia", {
