@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - shadcn/ui primitives, class-based dark mode, and a starter landing page.
 - A health endpoint and a TanStack Query provider.
 - A standalone Docker image with a non-root runtime user, a health check, and
-  Trivy scanning in CI.
+  Trivy scanning in CI. Docker and Trivy are required checks.
 
 ### Changed
 

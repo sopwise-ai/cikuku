@@ -34,6 +34,7 @@ jobs:
           vuln-type: os,library
       - name: Smoke test
         run: |
+          trap 'docker rm --force cikuku >/dev/null 2>&1 || true' EXIT
           docker run --detach --name cikuku --publish 3000:3000 \
             --env NEXT_PUBLIC_APP_URL=https://cikuku.example.com cikuku:ci
           for attempt in $(seq 1 30); do
@@ -45,4 +46,3 @@ jobs:
           curl --fail --silent http://127.0.0.1:3000/ | grep -q "A production-ready starter"
           curl --fail --silent --head http://127.0.0.1:3000/ | grep -qi "content-security-policy"
           test "$(docker exec cikuku id -u)" = "1001"
-          docker rm --force cikuku
