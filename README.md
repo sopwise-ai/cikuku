@@ -74,8 +74,8 @@ CI runs formatting, linting, type checking, dead-code detection, unit tests, a
 production build, and Playwright end-to-end tests. CodeQL and OpenSSF Scorecard
 publish results to code scanning. Lighthouse runs on pull requests that touch
 application code and weekly, with performance, accessibility, best-practices,
-and SEO assertions. Docker images are built on `main` and on pull requests that
-touch Docker inputs.
+and SEO assertions. Docker (build, Trivy scan, and smoke test) is a required
+check; Lighthouse and CodeQL are advisory.
 
 ## Testing
 

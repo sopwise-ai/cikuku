@@ -48,6 +48,7 @@ jobs:
           NEXT_TELEMETRY_DISABLED: "1"
       - name: Verify /api/health is request-time
         run: |
+          test -f .next/prerender-manifest.json
           if grep -q '"/api/health"' .next/prerender-manifest.json; then
             echo "Expected /api/health to be request-time"
             exit 1
